@@ -26,7 +26,7 @@ public class NBody {
 		return planets;
 	}
 
-	public static int readNum(String fileName) {
+	private static int readNum(String fileName) {
 		In in = new In(fileName);
 		int num = in.readInt();
 		return num;
