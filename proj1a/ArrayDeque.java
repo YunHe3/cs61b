@@ -1,11 +1,11 @@
 public class ArrayDeque<T> {
 
-	T[] array;
-	int size; // size of the data
+	private T[] array;
+	private int size; // size of the data
 	/** Two pointers point to the head and tail of this array, Cycle structure. */
-	int head;
-	int tail;
-	int length; // length of the array
+	private int head;
+	private int tail;
+	private int length; // length of the array
 
 	/** APIs */
 	public ArrayDeque () {
