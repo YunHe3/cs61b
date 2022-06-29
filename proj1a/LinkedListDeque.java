@@ -34,7 +34,7 @@ public class LinkedListDeque <T>{
     	SentinelNode.pre = SentinelNode;
     }
 
-    public LinkedListDeque(LinkedListDeque<T> other) {
+    public LinkedListDeque(LinkedListDeque other) {
     	// deep copy
     	this.size = other.size;
 		SentinelNode = new Node();
@@ -109,8 +109,8 @@ public class LinkedListDeque <T>{
     	return p.value;
     }
 
-     public T getRecursize(int index) {
-     	// Same as get, but use recursize.
+     public T getRecursive(int index) {
+     	// Same as get, but use recursive.
      	return helper(SentinelNode.next, index);
      }
 

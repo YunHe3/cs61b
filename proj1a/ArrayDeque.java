@@ -29,7 +29,7 @@ public class ArrayDeque<T> {
 		if (size > length) {
 			incArray();
 		}
-		head = (head - 1) % length;
+		head = (head + length - 1) % length;
 		array[head] = item;
 	}
 
@@ -38,7 +38,7 @@ public class ArrayDeque<T> {
 		if (size > length) {
 			incArray();
 		}
-		tail = (tail + 1) % length;
+		tail = (tail + length + 1) % length;
 		array[tail] = item;
 	}
 
@@ -52,7 +52,7 @@ public class ArrayDeque<T> {
 
 	public T removeFirst() { 
 		T temp = array[head];
-		head = (head + 1) % length;
+		head = (head + length + 1) % length;
 		size--;
 		if (size > 16 && size < length / 4) {
 			decArray();
@@ -62,7 +62,7 @@ public class ArrayDeque<T> {
 
 	public T removeLast() {
 		T temp = array[tail];
-		tail = (tail - 1) % length;
+		tail = (tail + length - 1) % length;
 		size--;
 		if (size > 16 && size < length / 4) {
 			decArray();
