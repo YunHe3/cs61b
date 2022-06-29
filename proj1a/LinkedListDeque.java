@@ -20,7 +20,7 @@ public class LinkedListDeque <T>{
 	}
 
 	private int size;
-	private Node SentinelNode;
+	private final Node SentinelNode;
 
 
     /** Public methods. (APIs)*/
@@ -34,7 +34,7 @@ public class LinkedListDeque <T>{
     	SentinelNode.pre = SentinelNode;
     }
 
-    public LinkedListDeque(LinkedListDeque other) {
+    public LinkedListDeque(LinkedListDeque<T> other) {
     	// deep copy
     	this.size = other.size;
 		SentinelNode = new Node();
@@ -120,5 +120,4 @@ public class LinkedListDeque <T>{
 			return helper(ptr.next, index - 1);
 		}
 	 }
-
 }

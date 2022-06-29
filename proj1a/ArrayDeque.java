@@ -15,10 +15,13 @@ public class ArrayDeque<T> {
 		head = tail = 0;
 	}
 
-	public ArrayDeque (ArrayDeque other) {
+	public ArrayDeque (ArrayDeque<T> other) {
+		head = other.head;
+		tail = other.tail;
 		size = other.size;
-		array = (T []) new Object[size];
-		System.arraycopy(other.array, 0, array, 0, size);
+		length = other.length;
+		array = (T []) new Object[length];
+		System.arraycopy(other.array, 0, array, 0, length);
 	}
 
 	public void addFirst(T item) {
