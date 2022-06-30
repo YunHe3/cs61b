@@ -58,6 +58,7 @@ public class ArrayDeque<T> {
 			head = (head + length + 1) % length;
 			size--;
 		}
+		if (size == 0) head = tail;
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
@@ -70,6 +71,7 @@ public class ArrayDeque<T> {
 			tail = (tail + length - 1) % length;
 			size--;
 		}
+		if (size == 0) tail = head;
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
@@ -110,9 +112,9 @@ public class ArrayDeque<T> {
 		}
 		else {
 			System.arraycopy(array, head, newArray, 0, length - head);
-			System.arraycopy(array, 0, newArray, length - head - 1, tail + 1);
+			System.arraycopy(array, 0, newArray, length - head, tail + 1);
 			head = 0;
-			tail = size - 1;
+			tail = size - 2;
 		}
 	}
  }
