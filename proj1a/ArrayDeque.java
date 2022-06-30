@@ -8,7 +8,7 @@ public class ArrayDeque<T> {
 	private int length; // length of the array
 
 	/** APIs */
-	public ArrayDeque () {
+	public ArrayDeque() {
 		length = 8;
 		array = (T []) new Object[length];
 		size = 0;
@@ -31,7 +31,9 @@ public class ArrayDeque<T> {
 		}
 		head = (head + length - 1) % length;
 		array[head] = item;
-		if (size == 1) tail = head;
+		if (size == 1) {
+			tail = head;
+		}
 	}
 
 	public void addLast(T item) {
@@ -41,7 +43,9 @@ public class ArrayDeque<T> {
 		}
 		tail = (tail + length + 1) % length;
 		array[tail] = item;
-		if(size == 1) head = tail;
+		if(size == 1) {
+			head = tail;
+		}
 	}
 
 	public boolean isEmpty() {
@@ -58,7 +62,9 @@ public class ArrayDeque<T> {
 			head = (head + length + 1) % length;
 			size--;
 		}
-		if (size == 0) head = tail;
+		if (size == 0) {
+			head = tail;
+		}
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
@@ -71,7 +77,9 @@ public class ArrayDeque<T> {
 			tail = (tail + length - 1) % length;
 			size--;
 		}
-		if (size == 0) tail = head;
+		if (size == 0) {
+			tail = head;
+		}
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
