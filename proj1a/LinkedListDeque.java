@@ -79,10 +79,11 @@ public class LinkedListDeque <T>{
 		int count = size;
     	Node p = SentinelNode.next;
     	while (count > 0) {
-    		System.out.print(p.value);
+    		System.out.print(p.value + " ");
     		p = p.next;
 			count--;
     	}
+		System.out.println();
     }
 
     public T removeFirst() {

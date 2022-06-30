@@ -52,10 +52,10 @@ public class ArrayDeque<T> {
 		return size;
 	}
 
-	public T removeFirst() { 
+	public T removeFirst() {
 		T temp = array[head];
 		head = (head + length + 1) % length;
-		size--;
+		if (size > 0) size--;
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
@@ -65,7 +65,7 @@ public class ArrayDeque<T> {
 	public T removeLast() {
 		T temp = array[tail];
 		tail = (tail + length - 1) % length;
-		size--;
+		if (size > 0) size--;
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
@@ -75,9 +75,10 @@ public class ArrayDeque<T> {
 	public void printDeque() {
 		int p = head;
 		for (int i = 0; i < size; i++) {
-			System.out.println(array[p]);
+			System.out.print(array[p] + " ");
 			p = (p + 1) % length;
 		}
+		System.out.println();
 	}
 	public T get(int index) {
 		return array[(index + head) % length];
@@ -101,7 +102,7 @@ public class ArrayDeque<T> {
 
 	private void myArrayCopy(T[] newArray) {
 		if (head < tail) {
-			System.arraycopy(array, head, newArray, 0, size);
+			System.arraycopy(array, head, newArray, 0, size-1);
 		}
 		else {
 			System.arraycopy(array, head, newArray, 0, length - head);
