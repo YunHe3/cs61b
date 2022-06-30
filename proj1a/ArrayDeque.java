@@ -15,14 +15,14 @@ public class ArrayDeque<T> {
 		head = tail = 0;
 	}
 
-	public ArrayDeque (ArrayDeque<T> other) {
-		head = other.head;
-		tail = other.tail;
-		size = other.size;
-		length = other.length;
-		array = (T []) new Object[length];
-		System.arraycopy(other.array, 0, array, 0, length);
-	}
+//	public ArrayDeque (ArrayDeque<T> other) {
+//		head = other.head;
+//		tail = other.tail;
+//		size = other.size;
+//		length = other.length;
+//		array = (T []) new Object[length];
+//		System.arraycopy(other.array, 0, array, 0, length);
+//	}
 
 	public void addFirst(T item) {
 		size++;
@@ -31,6 +31,7 @@ public class ArrayDeque<T> {
 		}
 		head = (head + length - 1) % length;
 		array[head] = item;
+		if (size == 1) tail = head;
 	}
 
 	public void addLast(T item) {
@@ -40,6 +41,7 @@ public class ArrayDeque<T> {
 		}
 		tail = (tail + length + 1) % length;
 		array[tail] = item;
+		if(size == 1) head = tail;
 	}
 
 	public boolean isEmpty() {
@@ -70,6 +72,13 @@ public class ArrayDeque<T> {
 		return temp;
 	}
 
+	public void printDeque() {
+		int p = head;
+		for (int i = 0; i < size; i++) {
+			System.out.println(array[p]);
+			p = (p + 1) % length;
+		}
+	}
 	public T get(int index) {
 		return array[(index + head) % length];
 	}

@@ -34,18 +34,18 @@ public class LinkedListDeque <T>{
     	SentinelNode.pre = SentinelNode;
     }
 
-    public LinkedListDeque(LinkedListDeque other) {
-    	// deep copy
-    	this.size = other.size;
-		SentinelNode = new Node();
-    	Node p = other.SentinelNode.next;
-    	
-    	int count = size;
-    	while (count > 0) {
-    		addLast(p.value);
-    		count--;
-    	}
-    }
+//    public LinkedListDeque(LinkedListDeque other) {
+//    	// deep copy
+//    	this.size = other.size;
+//		SentinelNode = new Node();
+//    	Node p = other.SentinelNode.next;
+//
+//    	int count = size;
+//    	while (count > 0) {
+//    		addLast(p.value);
+//    		count--;
+//    	}
+//    }
 
     public void addFirst(T item) {
     	size++;
@@ -90,6 +90,7 @@ public class LinkedListDeque <T>{
     	Node p = SentinelNode;
     	Node q = p.next;
     	p.next = q.next;
+		p.next.pre = p;
     	return q.value;
     }
 
@@ -98,6 +99,7 @@ public class LinkedListDeque <T>{
     	Node p = SentinelNode;
     	Node q = p.pre;
     	p.pre = q.pre;
+		p.pre.next = p;
     	return q.value;
     }
 
