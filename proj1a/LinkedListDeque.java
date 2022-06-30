@@ -87,7 +87,7 @@ public class LinkedListDeque <T>{
     }
 
     public T removeFirst() {
-    	size--;
+    	if (size > 0) size--;
     	Node p = SentinelNode;
     	Node q = p.next;
     	p.next = q.next;
@@ -96,7 +96,7 @@ public class LinkedListDeque <T>{
     }
 
     public T removeLast() {
-    	size--;
+    	if (size > 0) size--;
     	Node p = SentinelNode;
     	Node q = p.pre;
     	p.pre = q.pre;

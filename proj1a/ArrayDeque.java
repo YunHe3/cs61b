@@ -54,8 +54,10 @@ public class ArrayDeque<T> {
 
 	public T removeFirst() {
 		T temp = array[head];
-		head = (head + length + 1) % length;
-		if (size > 0) size--;
+		if (size > 0){
+			head = (head + length + 1) % length;
+			size--;
+		}
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
@@ -64,8 +66,10 @@ public class ArrayDeque<T> {
 
 	public T removeLast() {
 		T temp = array[tail];
-		tail = (tail + length - 1) % length;
-		if (size > 0) size--;
+		if (size > 0) {
+			tail = (tail + length - 1) % length;
+			size--;
+		}
 		if (size > 16 && size < length / 4) {
 			decArray();
 		}
